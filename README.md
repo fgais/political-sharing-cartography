@@ -13,10 +13,10 @@ where an entry is 1 if the respective user follows the MP. Generates ideological
 Takes the 2019 CHES ([Chapel Hill Expert Survey](https://www.chesdata.eu/ches-europe)) file (needs to be downloaded, `CHES2019V3.csv`), as well as the party positions in the embedding that are supposed to be correlated with the CHES data. 
 Party positions should be a `.csv` file looking as follows:
 ```
-|   | party  | dim_1 | ... | dim_N |
-|---+--------+-------+-----+-------|
-| 0 | party1 | float | ... | float |
-| 1 | party2 | float | ... | float |
+| party  | dim_1 | ... | dim_N |
+|--------+-------+-----+-------|
+| party1 | float | ... | float |
+| party2 | float | ... | float |
 ```
 Paths to both files needs to be specified. Orthogonally combines the CHES left-right dimension with all other CHES dimensions and finds the rotation angle for each pair for which the combined Pearson Correlation of the two dimensions with two specified dimensions of the embedding is maximized. Then checks if the additional dimension (to the left-right dimension) can be constructed by averaging over the rotation angles of several high-correlation dimensions, with a cutoff of .8.
 
