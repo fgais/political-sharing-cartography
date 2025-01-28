@@ -6,6 +6,7 @@ from prince import CA, MCA
 embedding_file = '' #Path of file that contains the crosstab that should be embedded
 
 x = pd.read_csv(embedding_file)
+x = x.set_index('user')
 
 ca = CA(
     n_components=30,
