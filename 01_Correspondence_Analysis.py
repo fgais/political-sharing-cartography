@@ -28,14 +28,14 @@ df["% of variance"] = df["% of variance"].astype(float)
 df["% of variance"].plot()
 
 #Export column coordinates
-column_coord_file = '' #path to file where columns (e.g. party accounts or MPs) are embedded
+column_coord_file = '' #path to file column coordinates (e.g. party accounts or MPs) are exported to
 
 column_coordinates = ca.column_coordinates(x)
 
 column_coordinates.to_csv(column_coord_file)
 
 #Export row coordinates
-row_coord_file = '' #path to file where columns (e.g. followers of MPs) are embedded
+row_coord_file = '' #path to file row coordinates (e.g. followers of MPs) are exported to
 
 row_coordinates = ca.row_coordinates(x)
 
