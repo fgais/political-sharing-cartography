@@ -86,24 +86,35 @@ overview = overview.sort_values('overall_corr', ascending = False)
 for idx, issue in enumerate(issues):
     issue_angle = corr_angles[idx]
     possible_mean = np.mean(corr_angles[:idx+1])
-    rot_x = rotate_position(combined_df[dim1], combined_df[dim2], possible_mean)[0]
-    rot_y = rotate_position(combined_df[dim1], combined_df[dim2], possible_mean)[1]
-    pear_x = scipy.stats.pearsonr(rot_x, combined_df['lrgen'])[0]
-    
-    if abs(pear_x) <= .8:
+
+    rot_x = rotate_position(y['0'], y['2'], possible_mean)[0]
+    rot_y = rotate_position(y['0'], y['2'], possible_mean)[1]
+    final_angle = 0
+    pear_x = scipy.stats.pearsonr(rot_x, y['lrgen'])[0]
+    if abs(pear_x) < .8:
+        print('Broken on dimension: ' + str(issue))
+        print('Because of dimension: lrgen, correlation ' + str(pear_x))
+        prev_angle = np.mean(corr_angles[:idx])
+        print('Angle before: ' + str(prev_angle))
+        final_angle = prev_angle
         break
-    for iss in issues[:idx+1]:    
-        pear_y = scipy.stats.pearsonr(rot_y, combined_df[iss])[0]
+    for iss in issues[:idx+1]:            
+        pear_y = scipy.stats.pearsonr(rot_y, y[iss])[0]#abs(scipy.stats.pearsonr(rot_y, y[el])[0])
         if pear_y < -.8:
-            pear_y = scipy.stats.pearsonr(rot_y, -combined_df[iss])[0]
+            pear_y = scipy.stats.pearsonr(rot_y, -y[iss])[0]
         if pear_y < .8:
             print('Broken on dimension: ' + str(issue))
-            print('Because of dimension: ' + str(iss))
+            print('Because of dimension: ' + str(iss) + ', correlation ' + str(pear_y))
             prev_angle = np.mean(corr_angles[:idx])
             print('Angle before: ' + str(prev_angle))
-            for iss in issues[:idx+1]:
-                pear_y = scipy.stats.pearsonr(rot_y, combined_df[iss])[0]
-                print(str(iss) + ' correlation: ' + str(pear_y))
+            final_angle = prev_angle
             break
-    if pear_y < .8:
-        break
+
+print('Correlations before: ')
+final_rot_x = rotate_position(y['0'], y['2'], final_angle)[0]
+final_rot_y = rotate_position(y['0'], y['2'], final_angle)[1]
+print('lrgen correlation: ' + str(scipy.stats.pearsonr(rot_x, y['lrgen'])[0]))
+
+for iss in issues[:idx]:
+    pear_y = scipy.stats.pearsonr(final_rot_y, y[iss])[0]
+    print(str(iss) + ' correlation: ' + str(pear_y))    
