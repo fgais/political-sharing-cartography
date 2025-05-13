@@ -20,4 +20,3 @@ Party positions should be a `.csv` file looking as follows:
 ```
 Paths to both files needs to be specified. Orthogonally combines the CHES left-right dimension with all other CHES dimensions and finds the rotation angle for each pair for which the combined Pearson Correlation of the two dimensions with two specified dimensions of the embedding is maximized. Then checks if the additional dimension (to the left-right dimension) can be constructed by averaging over the rotation angles of several high-correlation dimensions, with a cutoff of .8.
 
-## Topic model specifications
