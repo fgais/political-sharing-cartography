@@ -1,0 +1,6 @@
+stm
+dplyr
+furrr
+purrr
+tidyverse
+ggplot2
