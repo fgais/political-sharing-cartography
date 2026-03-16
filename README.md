@@ -20,3 +20,10 @@ Party positions should be a `.csv` file looking as follows:
 ```
 Paths to both files needs to be specified. Orthogonally combines the CHES left-right dimension with all other CHES dimensions and finds the rotation angle for each pair for which the combined Pearson Correlation of the two dimensions with two specified dimensions of the embedding is maximized. Then checks if the additional dimension (to the left-right dimension) can be constructed by averaging over the rotation angles of several high-correlation dimensions, with a cutoff of .8.
 
+## 3. Topic model
+Install the Python and R libraries from `requirements_tm_python.txt` and `requirements_tm_R.txt`, then run the following scripts:
+- `03a_preprocessing.py`: lemmatize article texts and create documents for topic model
+- `03b_stm.R`: infer STM for 20 to 300 topics (in steps of 20)
+- `03c_compute_evals.R`: compute evaluation scores for the inferred models
+- `03d_evaluate.ipynb`: plot evaluations, get topic labels and doc-topic-matrix
+
