@@ -9,7 +9,7 @@ Basic data processing steps to arrive at a Political Cartography of News Sharing
 | ...... | int | ... | ... | int |
 ```
 where an entry is 1 if the respective user follows the MP. Generates ideological embeddings of Twitter users with Correspondence Analysis, both for rows and columns (output files need to be specified). 
-## Rotation and correlation with CHES data
+## 2. Rotation and correlation with CHES data
 `02_rotation.py` takes the 2019 CHES ([Chapel Hill Expert Survey](https://www.chesdata.eu/ches-europe)) file (needs to be downloaded, `CHES2019V3.csv`), as well as the party positions in the embedding that are supposed to be correlated with the CHES data. 
 Party positions should be a `.csv` file looking as follows:
 ```
