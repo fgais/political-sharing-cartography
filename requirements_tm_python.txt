@@ -2,3 +2,9 @@ pandas
 spacy
 tqdm
 langdetect
+prince
+os
+newspaper3k
+csv
+sys
+scipy
