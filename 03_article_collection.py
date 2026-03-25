@@ -8,22 +8,21 @@ import sys
 # Increase CSV field size to handle large HTML
 csv.field_size_limit(sys.maxsize)
 
-# Load your full edge list
 df = pd.read_csv('./../data/full_edgelist.csv')
 unique_links = list(set(df.url))
 print(f'There are {len(unique_links)} unique links in our edge list.')
 
-# Collect already downloaded links
+# Check if some articles have already been downloaded
 links_collected = set()
 if os.path.isfile('articles.csv'):
     collected_df = pd.read_csv('articles.csv', chunksize=1000, engine='python')
     for chunk in collected_df:
         links_collected.update(chunk['link'].dropna())
 
-# Links that have not been collected yet
+# All links that have not been collected yet
 res = [i for i in unique_links if i not in links_collected]
 
-# Fix special URLs
+# Exception
 res = [url.replace('http://visual.gnutiez.de:8082/hl_diff.html?jump=', '') 
        if 'http://visual.gnutiez.de' in url else url for url in res]
 
@@ -50,5 +49,4 @@ with open('articles.csv', 'a', encoding='utf-8', newline='') as f:
             ])
 
         except Exception as e:
-            # Keep all failed URLs in the same CSV with status 'error'
             csvw.writerow([url, None, None, None, f'error: {e}', 'error'])
