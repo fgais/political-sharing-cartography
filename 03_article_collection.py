@@ -8,7 +8,7 @@ import sys
 # Increase CSV field size to handle large HTML
 csv.field_size_limit(sys.maxsize)
 
-df = pd.read_csv('./../data/full_edgelist.csv')
+df = pd.read_csv('shares_pseudo.csv.zip')
 unique_links = list(set(df.url))
 print(f'There are {len(unique_links)} unique links in our edge list.')
 
