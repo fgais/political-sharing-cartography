@@ -20,10 +20,13 @@ Party positions should be a `.csv` file looking as follows:
 ```
 Paths to both files needs to be specified. Orthogonally combines the CHES left-right dimension with all other CHES dimensions and finds the rotation angle for each pair for which the combined Pearson Correlation of the two dimensions with two specified dimensions of the embedding is maximized. Then checks if the additional dimension (to the left-right dimension) can be constructed by averaging over the rotation angles of several high-correlation dimensions, with a cutoff of .8.
 
-## 3. Topic model
+## 3. Article collection
+Articles can be collected with the script `03_article_collection.py`, which takes a list of unique URLs from `shares_pseudo.csv.zip` and subsequently collects article HTMLs, author, title and text. (HTMLs are collected in case the `newspaper3k` library cannot process the text automatically.)
+
+## 4. Topic model
 Install the Python and R libraries from `requirements_tm_python.txt` and `requirements_tm_R.txt`, then run the following scripts:
-- `03a_preprocessing.py`: lemmatize article texts and create documents for topic model
-- `03b_stm.R`: infer STM for 20 to 300 topics (in steps of 20)
-- `03c_compute_evals.R`: compute evaluation scores for the inferred models
-- `03d_evaluate.ipynb`: plot evaluations, get topic labels and doc-topic-matrix
+- `04a_preprocessing.py`: lemmatize article texts and create documents for topic model
+- `04b_stm.R`: infer STM for 20 to 300 topics (in steps of 20)
+- `04c_compute_evals.R`: compute evaluation scores for the inferred models
+- `04d_evaluate.ipynb`: plot evaluations, get topic labels and doc-topic-matrix
 
