@@ -36,13 +36,13 @@ Install the Python and R libraries from `requirements_tm_python.txt` and `requir
 
 ## 5. Plots of "Introducing a Political Cartography of News Sharing: Capturing Story, Outlet and Content Level of News Circulation on Twitter"
 If the data from Zenodo has been downloaded and stored in the folder `./data/`, the plots of the paper can be reproduced in the following way:
-- The left panel of Fig. 1 and the right panel of Fig. 1, which are the two-dimensional embeddings before and after rotation, can be produced with `05_01_plot_embedding.ipynb`.
-- The plots for Fig. 2 A/B/C can be produced with `05_02_plot_outlet_distribution_1D.ipynb`.
-- The plots for Fig. 2 D/E/F and Fig. 3 C/E can be produced with `05_03_plot_outlet_distribution.ipynb`.
-- The plots for Fig. 3 A/B can be produced with `05_04_plot_individual_articles.ipynb`.
-- The plots for Fig. 3 D/F can be produced with `05_05_plot_story_mean_distribution.ipynb`.
-- The plots for Fig. 4 can be produced with `05_05_plot_metatopic_x_outlet.ipynb`.
-- The top plot in Fig. 5 can be produced with `05_06_plot_metatopics.ipynb.ipynb`.
-- The four plots below in Fig. 5 can be produced with `05_07_plot_topics.ipynb`.
+- The left panel of Fig. 1 and the right panel of Fig. 1, which are the two-dimensional embeddings before and after rotation, can be produced with `05a_plot_embedding.ipynb`.
+- The plots for Fig. 2 A/B/C can be produced with `05b_plot_outlet_distribution_1D.ipynb`.
+- The plots for Fig. 2 D/E/F and Fig. 3 C/E can be produced with `05c_plot_outlet_distribution.ipynb`.
+- The plots for Fig. 3 A/B can be produced with `05d_plot_individual_articles.ipynb`.
+- The plots for Fig. 3 D/F can be produced with `05e_plot_story_mean_distribution.ipynb`.
+- The plots for Fig. 4 can be produced with `05f_plot_metatopic_x_outlet.ipynb`.
+- The top plot in Fig. 5 can be produced with `05g_plot_metatopics.ipynb.ipynb`.
+- The four plots below in Fig. 5 can be produced with `05h_plot_topics.ipynb`.
 
 
