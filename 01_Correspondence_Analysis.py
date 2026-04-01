@@ -3,7 +3,7 @@ import csv
 import pandas as pd
 from prince import CA, MCA
 
-embedding_file = '' #Path of file that contains the crosstab that should be embedded
+embedding_file = './data/followers_pseudo.csv' #Path of file that contains the crosstab that should be embedded
 
 x = pd.read_csv(embedding_file)
 x = x.set_index('user')
@@ -28,14 +28,14 @@ df["% of variance"] = df["% of variance"].astype(float)
 df["% of variance"].plot()
 
 #Export column coordinates
-column_coord_file = '' #path to file column coordinates (e.g. party accounts or MPs) are exported to
+column_coord_file = './data/embedding_pseudo_before_rotation_2.csv' #path to file column coordinates (e.g. party accounts or MPs) are exported to
 
 column_coordinates = ca.column_coordinates(x)
 
 column_coordinates.to_csv(column_coord_file)
 
 #Export row coordinates
-row_coord_file = '' #path to file row coordinates (e.g. followers of MPs) are exported to
+row_coord_file = './data/MP_embedding_pseudo_before_rotation_2.csv' #path to file row coordinates (e.g. followers of MPs) are exported to
 
 row_coordinates = ca.row_coordinates(x)
 
