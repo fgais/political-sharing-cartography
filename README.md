@@ -7,27 +7,20 @@ The code to arrive at the figures/single plots in the paper "Introducing a Polit
 
 Code includes:
 ## 1. Correspondence Analysis
-`01_Correspondence_Analysis.py` takes crosstab (`./data/followers_pseudo.csv`) file of following users (rows) and followed users (MPs) (columns) as input, 
+Run `01_Correspondence_Analysis.py` to carry out the Correspondence Analysis.  `01_Correspondence_Analysis.py` takes crosstab (`./data/followers_pseudo.csv`) file of following users (rows) and followed users (MPs) (columns) as input, 
 ```
 |        | P_1 | P_2 | ... | P_N |
 |--------+-----+-----+-----+-----|
 | user_1 | int | ... | ... | int |
 | ...... | int | ... | ... | int |
 ```
-where an entry is 1 if the respective user follows the MP. Generates ideological embeddings of Twitter users with Correspondence Analysis, both for rows and columns. 
+where an entry is 1 if the respective user follows the MP. The code simply needs to be executed with the crosstab saved in the `./data/` folder and then generates ideological embeddings of Twitter users with Correspondence Analysis, both for rows and columns, and exports these. 
+
 ## 2. Rotation and correlation with CHES data
-`02_rotation.py` takes the 2019 CHES ([Chapel Hill Expert Survey](https://www.chesdata.eu/ches-europe)) file (needs to be downloaded and stored as `./data/CHES2019V3.csv`), as well as the party positions in the embedding that are supposed to be correlated with the CHES data. 
-Party positions should be a `.csv` file looking as follows:
-```
-| party  | dim_1 | ... | dim_N |
-|--------+-------+-----+-------|
-| party1 | float | ... | float |
-| party2 | float | ... | float |
-```
-Orthogonally combines the CHES left-right dimension with all other CHES dimensions and finds the rotation angle for each pair for which the combined Pearson Correlation of the two dimensions with two specified dimensions of the embedding is maximized. Then checks if the additional dimension (to the left-right dimension) can be constructed by averaging over the rotation angles of several high-correlation dimensions, with a cutoff of .8. Generates rotated embeddings according to the rotation angle.
+Run `02_rotation.py` to correlate the embedding with CHES dimensions. `02_rotation.py` takes the 2019 CHES ([Chapel Hill Expert Survey](https://www.chesdata.eu/ches-europe)) file (needs to be downloaded and stored as `./data/CHES2019V3.csv`), as well as the party positions in the embedding that are supposed to be correlated with the CHES data. It take the positions of the MPs embedded via Correspondence Analysis, stored as `./data/mp_embedding_pseudo_before_rotation.csv`, and averages over their positions per party. It orthogonally combines the CHES left-right dimension with all other CHES dimensions and finds the rotation angle for each pair for which the combined Pearson Correlation of the two dimensions with two specified dimensions of the embedding is maximized. Then checks if the additional dimension (to the left-right dimension) can be constructed by averaging over the rotation angles of several high-correlation dimensions, with a cutoff of .8. Generates rotated embeddings according to the optimal rotation angle for parties and users and exports these rotated embeddings.
 
 ## 3. Article collection
-Articles can be collected with the script `03_article_collection.py`, which takes a list of unique URLs from `shares_pseudo.csv` and subsequently collects article HTMLs, author, title and text. (HTMLs are collected in case the `newspaper3k` library cannot process the text automatically.)
+Run `03_article_collection.py` to collect all articles that were shared during the observation period. `03_article_collection.py` takes a list of unique URLs from `shares_pseudo.csv` and subsequently collects article HTMLs, author, title and text, and stores them in a `.csv` file. (HTMLs are collected in case the `newspaper3k` library cannot process the text automatically.)
 
 ## 4. Topic model
 Install the Python and R libraries from `requirements_tm_python.txt` and `requirements_tm_R.txt`, then run the following scripts:
