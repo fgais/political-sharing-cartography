@@ -35,7 +35,7 @@ Install the Python and R libraries from `requirements_tm_python.txt` and `requir
 - `04d_evaluate.ipynb`: plot evaluations, get topic labels and doc-topic-matrix
 
 ## 5. Plots of "Introducing a Political Cartography of News Sharing: Capturing Story, Outlet and Content Level of News Circulation on Twitter"
-If the data from Zenodo has been downloaded and stored in the folder `./data/`, the plots of the paper can be reproduced with the following Jupyter notebooks which use `shares_pseudo.csv`, `embedding_pseudo.csv`, `article_topic_matrix.csv`, `article_to_id.csv` and `party_pos_FINAL.csv` which need to be stored in the `./data/` folder:
+If the data from Zenodo has been downloaded and stored in the folder `./data/`, the plots of the paper can be reproduced with the following Jupyter notebooks which use `shares_pseudo.csv`, `embedding_pseudo.csv`, `article_topic_matrix.csv`, `article_to_id.csv` and `party_pos_FINAL.csv` ([Zenodo](https://zenodo.org/records/19071466)) which need to be stored in the `./data/` folder:
 - The left panel of Fig. 1 and the right panel of Fig. 1, which are the two-dimensional embeddings before and after rotation, can be produced with `05a_plot_embedding.ipynb`.
 - The plots for Fig. 2 A/B/C can be produced with `05b_plot_outlet_distribution_1D.ipynb`.
 - The plots for Fig. 2 D/E/F and Fig. 3 C/E can be produced with `05c_plot_outlet_distribution.ipynb`.
