@@ -1,1 +1,1 @@
-import Zenodo files into this folder
+This is the folder into which you can download the files from Zenodo.
