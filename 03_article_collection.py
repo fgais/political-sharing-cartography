@@ -8,14 +8,14 @@ import sys
 # Increase CSV field size to handle large HTML
 csv.field_size_limit(sys.maxsize)
 
-df = pd.read_csv('shares_pseudo.csv.zip')
+df = pd.read_csv('./data/shares_pseudo.csv')
 unique_links = list(set(df.url))
 print(f'There are {len(unique_links)} unique links in our edge list.')
 
 # Check if some articles have already been downloaded
 links_collected = set()
-if os.path.isfile('articles.csv'):
-    collected_df = pd.read_csv('articles.csv', chunksize=1000, engine='python')
+if os.path.isfile('data/collected_articles.csv'):
+    collected_df = pd.read_csv('data/collected_articles.csv', chunksize=1000, engine='python')
     for chunk in collected_df:
         links_collected.update(chunk['link'].dropna())
 
