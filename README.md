@@ -1,7 +1,9 @@
 # political-sharing-cartography
 Basic data processing steps to arrive at a Political Cartography of News Sharing. The data, which is should be stored in the folder `./data`, can be found on [Zenodo](https://zenodo.org/records/19071466). 
 
-The basic steps of the research pipeline leading to a Political Cartography of News Sharing are described in 1.-4. and the code that is mentioned in these steps. The code to arrive at the plots in the paper "Introducing a Political Cartography of News Sharing: Capturing Story, Outlet and Content Level of News Circulation on Twitter" is listed under 5. and provided in the form of Jupyter Notebooks.
+The basic steps of the research pipeline leading to a Political Cartography of News Sharing are described in 1.-4. These steps, in combination with the code, allow reproducing the lower-dimensional embedding using Correspondence Analysis (1.), the rotation of the corresponding embedding (2.), the collection of the articles (3.) and the topic modeling with STM in R (4.). 
+
+The code to arrive at the figures/single plots in the paper "Introducing a Political Cartography of News Sharing: Capturing Story, Outlet and Content Level of News Circulation on Twitter" is listed under 5. and provided in the form of Jupyter Notebooks.
 
 Code includes:
 ## 1. Correspondence Analysis
