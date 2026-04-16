@@ -1,11 +1,15 @@
 # political-sharing-cartography
+
 Basic data processing steps to arrive at a Political Cartography of News Sharing. The data, which is should be stored in the folder `./data`, can be found on [Zenodo](https://zenodo.org/records/19071466). 
 
 The basic steps of the research pipeline leading to a Political Cartography of News Sharing are described in 1.-4. These steps, in combination with the code, allow reproducing the lower-dimensional embedding using Correspondence Analysis (1.), the rotation of the corresponding embedding (2.), the collection of the articles (3.) and the topic modeling with STM in R (4.). 
 
 The code to arrive at the figures/single plots in the paper "Introducing a Political Cartography of News Sharing: Capturing Story, Outlet and Content Level of News Circulation on Twitter" is listed under 5. and provided in the form of Jupyter Notebooks.
 
+For reproduction of the analysis with the data on Zenodo, see the [Reproduction](#reproduction) section.
+
 Code includes:
+
 ## 1. Correspondence Analysis
 Run `01_Correspondence_Analysis.py` to carry out the Correspondence Analysis.  `01_Correspondence_Analysis.py` takes crosstab (`./data/followers_pseudo.csv`) file of following users (rows) and followed users (MPs) (columns) as input, 
 ```
@@ -40,4 +44,13 @@ If the data from Zenodo has been downloaded and stored in the folder `./data/`, 
 - The top plot in Fig. 5 can be produced with `05g_plot_metatopics.ipynb.ipynb`.
 - The four plots below in Fig. 5 can be produced with `05h_plot_topics.ipynb`.
 
+# Reproduction
 
+To quickly reproduce the analyses, we recommend using [`uv`](https://docs.astral.sh/uv/concepts/python-versions/) and `make`. This way, it ensures a fixed computational environment and batch execution.
+
+On most machines, `make` should be installed by default. See https://docs.astral.sh/uv/getting-started/installation/ for the instructions on how to install `uv`. With `uv` installed, initialize the project (`uv sync`) and then run `make`. By default, `make` will download all the required data files from Zenodo and Chapel Hill Expert Survey, and then rerun all `05*_plot_*.ipynb`.
+
+```bash
+uv sync
+make
+```

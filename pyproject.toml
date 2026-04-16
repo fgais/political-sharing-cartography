@@ -1,0 +1,19 @@
+[project]
+name = "political-sharing-cartography"
+version = "0.1.0"
+description = "A Political Cartography of News Sharing on Twitter"
+readme = "README.md"
+requires-python = "==3.14.4"
+dependencies = [
+    "jupyter==1.1.1",
+    "langdetect==1.0.9",
+    "matplotlib==3.10.8",
+    "newspaper3k==0.2.8",
+    "pandas==3.0.2",
+    "prince==0.17.0",
+    "scipy==1.17.1",
+    "seaborn==0.13.2",
+    "spacy==3.8.13",
+    "tqdm==4.67.3",
+    "zenodo-get==3.0.0",
+]
